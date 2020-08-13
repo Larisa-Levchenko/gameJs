@@ -27,7 +27,7 @@ const game = function(){
             }             
                  
         }else{
-            console.log('Игра окончена');
+            alert('Игра окончена');
         }
     };
     bot();
