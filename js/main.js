@@ -9,22 +9,36 @@ function getRandomInt(max) {
 
 const game = function(){
     let number = getRandomInt(100);
+    let amount = 10;
     console.log(number);        
     const bot =function(){
+        amount--;
         let n = prompt('Угадай число от 1 до 100');
         if(n!==null){
-            if(+n===number){
-                alert('Ура!!! Загаданное число: ' + n);
+            if(amount>0){
+                if(+n===number){
+                    let repeat = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
+                    if(repeat){
+                       game();
+                    }
+                }else{
+                    if(n<number){
+                        alert('Загаданное число больше, осталось попыток ' + amount);                                 
+                    }else if(n>number){
+                        alert('Загаданное число меньше, осталось попыток ' + amount);                    
+                    }else if(!isNumber(n)){
+                        alert('Введи число!');                    
+                    }
+                    bot();  
+                }            
+
             }else{
-                if(n<number){
-                    alert('Загаданное число больше');                                 
-                }else if(n>number){
-                    alert('Загаданное число меньше');                    
-                }else if(!isNumber(n)){
-                    alert('Введи число!');                    
-                }
-                bot();  
-            }             
+                let repeat = confirm('Попытки закончились, хотите сыграть еще?');
+                console.log(repeat);
+                    if(repeat){
+                       game();
+                    }
+            }          
                  
         }else{
             alert('Игра окончена');
