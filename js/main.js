@@ -27,7 +27,8 @@ const game = function(){
                     }else if(n>number){
                         alert('Загаданное число меньше, осталось попыток ' + amount);                    
                     }else if(!isNumber(n)){
-                        alert('Введи число!');                    
+                        alert('Введи число!');      
+                        amount++;              
                     }
                     bot();  
                 }            
